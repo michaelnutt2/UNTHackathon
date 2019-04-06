@@ -7,4 +7,5 @@
     <string name="chat_send_button">Send</string>
     <string name="enter_text">...</string>
     <string name="wt_pushtotalk">Hold To Talk</string>
+    <string name="project_name">guardNet</string>
 </resources>
