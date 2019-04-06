@@ -13,7 +13,6 @@
             android:layout_width="306dp"
             android:layout_height="54dp"
             android:inputType="textMultiLine|text"
-            android:text="@string/enter_text"
             android:ems="10"
             android:id="@+id/chat_text"
             style="@android:style/Widget.DeviceDefault.Light.EditText"

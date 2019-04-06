@@ -2,9 +2,9 @@
     <string name="app_name">UNTHackathon</string>
     <string name="EM_toggle">Emergancy Mode</string>
     <string name="Map_button">Map</string>
-    <string name="WT_button">Walkie Talkie</string>
-    <string name="chat_button">Chat</string>
+    <string name="Comms_button">Comms</string>
     <string name="Nearby_peeps_button">Nearby People</string>
     <string name="chat_send_button">Send</string>
     <string name="enter_text">...</string>
+    <string name="wt_pushtotalk">Hold To Talk</string>
 </resources>
