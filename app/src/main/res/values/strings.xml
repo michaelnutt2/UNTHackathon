@@ -6,4 +6,5 @@
     <string name="chat_button">Chat</string>
     <string name="Nearby_peeps_button">Nearby People</string>
     <string name="chat_send_button">Send</string>
+    <string name="enter_text">...</string>
 </resources>
