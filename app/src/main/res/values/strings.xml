@@ -5,4 +5,5 @@
     <string name="WT_button">Walkie Talkie</string>
     <string name="chat_button">Chat</string>
     <string name="Nearby_peeps_button">Nearby People</string>
+    <string name="chat_send_button">Send</string>
 </resources>
