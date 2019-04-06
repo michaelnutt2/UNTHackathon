@@ -9,7 +9,7 @@
     <Button
             android:layout_width="166dp"
             android:layout_height="58dp"
-            android:id="@+id/button2" android:text="@string/Map_button"
+            android:id="@+id/main_mapButton" android:text="@string/Map_button"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp"
             app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="252dp"
@@ -18,8 +18,8 @@
             android:text="@string/WT_button"
             android:layout_width="166dp"
             android:layout_height="58dp"
-            android:id="@+id/button3"
-            android:layout_marginTop="12dp" app:layout_constraintTop_toBottomOf="@+id/button2"
+            android:id="@+id/main_wtButton"
+            android:layout_marginTop="12dp" app:layout_constraintTop_toBottomOf="@+id/main_mapButton"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
             app:layout_constraintHorizontal_bias="0.497"/>
@@ -27,15 +27,15 @@
             android:text="@string/chat_button"
             android:layout_width="166dp"
             android:layout_height="58dp"
-            android:id="@+id/button4" android:layout_marginTop="20dp"
-            app:layout_constraintTop_toBottomOf="@+id/button3" app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/main_chatButton" android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/main_wtButton" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="16dp" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="16dp" app:layout_constraintHorizontal_bias="0.497"/>
     <Switch
             android:layout_width="166dp"
             android:layout_height="58dp"
-            android:id="@+id/switch1" android:text="@string/EM_toggle"
-            android:layout_marginBottom="16dp" app:layout_constraintBottom_toTopOf="@+id/button2"
+            android:id="@+id/main_EMSwitch" android:text="@string/EM_toggle"
+            android:layout_marginBottom="16dp" app:layout_constraintBottom_toTopOf="@+id/main_mapButton"
             android:layout_marginTop="16dp" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.845" android:layout_marginStart="16dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="16dp"
@@ -44,11 +44,11 @@
             android:text="@string/Nearby_peeps_button"
             android:layout_width="166dp"
             android:layout_height="58dp"
-            android:id="@+id/button5"
+            android:id="@+id/main_peopleButton"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="16dp" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="16dp" android:layout_marginBottom="16dp"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintHorizontal_bias="0.497"
-            android:layout_marginTop="16dp" app:layout_constraintTop_toBottomOf="@+id/button4"
+            android:layout_marginTop="16dp" app:layout_constraintTop_toBottomOf="@+id/main_chatButton"
             app:layout_constraintVertical_bias="0.0"/>
 </android.support.constraint.ConstraintLayout>
