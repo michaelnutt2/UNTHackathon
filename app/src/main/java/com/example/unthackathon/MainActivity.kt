@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v4.app.ActivityCompat
 import android.widget.Button
 import android.widget.Switch
 
@@ -64,6 +65,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupBluetooth() {
         // Pulls preferences
+
         val sharedPreferences = getSharedPreferences("unt_hackathon_preferences", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
 
