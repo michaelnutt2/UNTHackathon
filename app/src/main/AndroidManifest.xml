@@ -15,11 +15,14 @@
         <activity android:name=".PeopleActivity"
                   android:parentActivityName=".MainActivity">
         </activity>
-        <activity android:name=".ChatActivity"
+        <activity android:name=".CommsActivity"
                   android:parentActivityName=".MainActivity">
         </activity>
         <activity android:name=".MapActivity"
                   android:parentActivityName=".MainActivity">
+        </activity>
+        <activity android:name=".ChatActivity"
+                  android:parentActivityName=".CommsActivity">
         </activity>
         <activity android:name=".MainActivity">
             <intent-filter>

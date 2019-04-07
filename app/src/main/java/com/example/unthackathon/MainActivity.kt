@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
 
         // Sets up buttons as variables
         val people_button = findViewById<Button>(R.id.main_peopleButton)
-        val chat_button = findViewById<Button>(R.id.main_chatButton)
+        val comms_button = findViewById<Button>(R.id.main_commsButton)
         val map_button = findViewById<Button>(R.id.main_mapButton)
         val em_switch = findViewById<Switch>(R.id.main_EMSwitch)
 
@@ -45,8 +45,8 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        chat_button.setOnClickListener {
-            val intent = Intent(this, ChatActivity::class.java)
+        comms_button.setOnClickListener {
+            val intent = Intent(this, CommsActivity::class.java)
             startActivity(intent)
         }
 
