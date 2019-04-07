@@ -6,51 +6,54 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import android.widget.CompoundButton
 import android.widget.Switch
-import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+
+    private val bluetoothAdapter : BluetoothAdapter = BluetoothAdapter.getDefaultAdapter()
+    // Pulls preferences
+    private val sharedPreferences = getSharedPreferences("unt_hackathon_preferences", Context.MODE_PRIVATE)
+    private val editor = sharedPreferences.edit()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Pulls preferences, used to check if switch is enabled
-        val sharedPreferences = getSharedPreferences("unt_hackathon_preferences", Context.MODE_PRIVATE)
-        val editor = sharedPreferences.edit()
+        editor.putString("bluetoothName", bluetoothAdapter.getName())
+    }
+
+    override fun onStart() {
+        super.onStart()
 
         // Sets up buttons as variables
-        val people_button = findViewById<Button>(R.id.main_peopleButton)
-        val comms_button = findViewById<Button>(R.id.main_commsButton)
-        val map_button = findViewById<Button>(R.id.main_mapButton)
-        val em_switch = findViewById<Switch>(R.id.main_EMSwitch)
+        val commsButton = findViewById<Button>(R.id.main_commsButton)
+        val mapButton = findViewById<Button>(R.id.main_mapButton)
+        val emSwitch = findViewById<Switch>(R.id.main_EMSwitch)
 
-        em_switch.isChecked = sharedPreferences.getBoolean("em_switch", false)
+        emSwitch.isChecked = sharedPreferences.getBoolean("em_switch", false)
+        editor.putString("bluetoothName", bluetoothAdapter.getName())
+        editor.apply()
+        editor.commit()
 
-        // Checks if switch changed
-        em_switch.setOnCheckedChangeListener {buttonView, isChecked ->
+        // Checks if switch changed, starts BT discovery if it is
+        emSwitch.setOnCheckedChangeListener {buttonView, isChecked ->
             if (isChecked) {
                 setupBluetooth()
-                editor.putBoolean("em_switch", true)
             } else {
-                editor.putBoolean("em_switch", false)
+                turnOffEM()
             }
             editor.apply()
             editor.commit()
         }
 
-        people_button.setOnClickListener {
-            val intent = Intent(this, PeopleActivity::class.java)
-            startActivity(intent)
-        }
-
-        comms_button.setOnClickListener {
+        // Goes to Comms activity on button press
+        commsButton.setOnClickListener {
             val intent = Intent(this, CommsActivity::class.java)
             startActivity(intent)
         }
 
-        map_button.setOnClickListener {
+        // Goes to Map activity on button press
+        mapButton.setOnClickListener {
             val intent = Intent(this, MapActivity::class.java)
             startActivity(intent)
         }
@@ -62,5 +65,22 @@ class MainActivity : AppCompatActivity() {
             putExtra(BluetoothAdapter.EXTRA_DISCOVERABLE_DURATION, 3600)
         }
         startActivity(discoverableIntent)
+
+        bluetoothAdapter.setName("guardNet")
+        editor.putBoolean("em_switch", true)
+    }
+
+    private fun turnOffEM() {
+        val name = sharedPreferences.getString("bluetoothName","guardNet")
+        bluetoothAdapter.setName(name)
+        bluetoothAdapter.disable()
+        editor.putBoolean("em_switch", false)
+        editor.apply()
+        editor.commit()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        turnOffEM()
     }
 }

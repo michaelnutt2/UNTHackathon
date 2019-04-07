@@ -12,9 +12,6 @@
             android:roundIcon="@drawable/heavy_machinery_logo_transparent"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".PeopleActivity"
-                  android:parentActivityName=".MainActivity">
-        </activity>
         <activity android:name=".CommsActivity"
                   android:parentActivityName=".MainActivity">
         </activity>
